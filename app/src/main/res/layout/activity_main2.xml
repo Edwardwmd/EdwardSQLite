@@ -20,4 +20,13 @@
         android:layout_below="@+id/greendao"
         android:text="传统型数据库"
         android:textSize="25sp" />
+
+    <Button
+
+        android:id="@+id/rxdao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/normaldao"
+        android:text="Rx数据库"
+        android:textSize="25sp" />
 </RelativeLayout>

@@ -8,14 +8,15 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button greendao;
-    private Button normaldao;
+    private Button greendao,normaldao,rxdao;
 
     private void findViews() {
         greendao = (Button) findViewById(R.id.greendao);
         normaldao = (Button) findViewById(R.id.normaldao);
+        rxdao = (Button) findViewById(R.id.rxdao);
         greendao.setOnClickListener(this);
         normaldao.setOnClickListener(this);
+        rxdao.setOnClickListener(this);
     }
 
     @Override
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (v == normaldao) {
             Intent intent = new Intent(this, NormalSqlActivity.class);
+            startActivity(intent);
+        }else {
+            Intent intent = new Intent(this, RxSqlActivity.class);
             startActivity(intent);
         }
     }

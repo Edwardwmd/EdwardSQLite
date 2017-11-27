@@ -1,9 +1,12 @@
 package com.wmd.sqlitetest.edwardsqlitetest.utils;
 
+import android.widget.EditText;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 /**
  * 时间：2017/11/15/13：53
@@ -50,5 +53,9 @@ public class ToolsUtils {
         Random random = new Random(currentNum);
         long currNum = random.nextLong();
         return currNum;
+    }
+
+    public static boolean isNumByKeyBoard(EditText editText) {
+        return Pattern.compile("[0-9]*").matcher(editText.getText().toString()).matches();
     }
 }

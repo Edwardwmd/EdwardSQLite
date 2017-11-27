@@ -17,12 +17,10 @@
         <activity
             android:name=".NormalSqlActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".GreenDaoTActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask"
@@ -33,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RxSqlActivity"></activity>
     </application>
 
 </manifest>

@@ -18,7 +18,6 @@ public class DaoManager {
     private static final String DB_NAME = "persondao.db";
     private Context mC;
 
-
     private volatile static DaoManager manager;  //多线程中要被共享的使用volatile关键字修饰
     private DaoMaster.DevOpenHelper mDevOpenHelper;
     private DaoMaster mDaoMaster;

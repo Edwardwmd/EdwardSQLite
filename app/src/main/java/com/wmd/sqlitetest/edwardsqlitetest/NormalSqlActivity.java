@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.wmd.sqlitetest.edwardsqlitetest.nomalsql.DAO.ContantsBean;
 import com.wmd.sqlitetest.edwardsqlitetest.nomalsql.DAO.DBModel;
-import com.wmd.sqlitetest.edwardsqlitetest.nomalsql.adapter.ShowDataAdapter;
+import com.wmd.sqlitetest.edwardsqlitetest.adapter.ShowDataAdapter;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -24,6 +24,7 @@ public class NormalSqlActivity extends AppCompatActivity implements View.OnClick
     private EditText name;
     private EditText age;
     private ListView listview;
+    private ContantsBean.Builder builder;
 
     private void findViews() {
         btnAdd = (Button) findViewById(R.id.btn_add);
@@ -34,6 +35,7 @@ public class NormalSqlActivity extends AppCompatActivity implements View.OnClick
         listview = (ListView) findViewById(R.id.listview);
         btnAdd.setOnClickListener(this);
         btnShow.setOnClickListener(this);
+        builder = new ContantsBean.Builder();
     }
 
     @Override
@@ -44,8 +46,12 @@ public class NormalSqlActivity extends AppCompatActivity implements View.OnClick
             Matcher mId = p.matcher(id.getText().toString());
             Matcher mAge = p.matcher(age.getText().toString());
             if (mId.matches() && mAge.matches()) {
-                DBModel.getInstance().getmDbManager().getContactDao().addContantInfo(
-                        new ContantsBean(Integer.parseInt(id.getText().toString()), name.getText().toString(), Integer.parseInt(age.getText().toString())));
+                //new ContantsBean(Integer.parseInt(id.getText().toString()), name.getText().toString(), Integer.parseInt(age.getText().toString()))
+                DBModel.getInstance().getmDbManager().getContactDao().addContantInfo(builder.
+                        id(Integer.parseInt(id.getText().toString())).
+                        name(name.getText().toString()).
+                        age(Integer.parseInt(age.getText().toString())).
+                        build());
             } else {
                 Toast.makeText(NormalSqlActivity.this, "请输入数字", Toast.LENGTH_SHORT).show();
             }

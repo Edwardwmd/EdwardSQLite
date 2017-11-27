@@ -1,4 +1,4 @@
-package com.wmd.sqlitetest.edwardsqlitetest.nomalsql.adapter;
+package com.wmd.sqlitetest.edwardsqlitetest.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

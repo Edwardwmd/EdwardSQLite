@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:orientation="horizontal">
@@ -7,19 +8,37 @@
     <TextView
         android:id="@+id/name"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"
+        android:text="ggg"
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sex"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ggg"
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/name"
+        app:layout_constraintRight_toRightOf="@id/age"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/age"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:text="ggg"
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

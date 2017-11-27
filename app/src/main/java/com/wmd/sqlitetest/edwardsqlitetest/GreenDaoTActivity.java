@@ -15,8 +15,6 @@ import com.wmd.sqlitetest.edwardsqlitetest.utils.GreenDaoTAdapter;
 import com.wmd.sqlitetest.edwardsqlitetest.utils.ToolsUtils;
 
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class GreenDaoTActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText name, sex, age;
@@ -54,27 +52,19 @@ public class GreenDaoTActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         if (v == add) {
-            Pattern p = Pattern.compile("[0-9]*");
-            Matcher mAge = p.matcher(age.getText().toString());
-            if (mAge.matches()) {
+            if (ToolsUtils.isNumByKeyBoard(age)) {
+
                 final boolean b = personDaoUtils.insertPerson(new PersonBean(ToolsUtils.dateToLong(new Date()), name.getText().toString(), sex.getText().toString(), Integer.parseInt(age.getText().toString())));
-                if (b == true) {
-                    Toast.makeText(GreenDaoTActivity.this, "添加数据成功", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(GreenDaoTActivity.this, "添加数据失败", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(GreenDaoTActivity.this, b == true ? "添加数据成功" : "添加数据失败", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(GreenDaoTActivity.this, "请输入数字", Toast.LENGTH_SHORT).show();
             }
 
 
         } else if (v == del) {
+
             final boolean b = personDaoUtils.delAllPerson();
-            if (b == true) {
-                Toast.makeText(GreenDaoTActivity.this, "删除数据成功", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(GreenDaoTActivity.this, "删除数据失败", Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(GreenDaoTActivity.this, b == true ? "删除数据成功" : "删除数据失败", Toast.LENGTH_SHORT).show();
         } else if (v == query) {
             adapter.setData(personDaoUtils.queryAlPerson());
         }

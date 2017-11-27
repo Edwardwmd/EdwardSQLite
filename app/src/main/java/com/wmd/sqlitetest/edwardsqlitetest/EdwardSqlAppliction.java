@@ -3,8 +3,6 @@ package com.wmd.sqlitetest.edwardsqlitetest;
 import android.app.Application;
 import android.content.Context;
 
-import com.wmd.sqlitetest.edwardsqlitetest.nomalsql.DAO.DBModel;
-
 /**
  * 时间：2017/10/24/18：03
  * 作者：吴明德
@@ -20,7 +18,6 @@ public class EdwardSqlAppliction extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = EdwardSqlAppliction.this;
-        DBModel.getInstance().inint(mContext);
     }
 
 }
